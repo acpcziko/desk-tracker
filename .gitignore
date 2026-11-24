@@ -1,0 +1,18 @@
+# Private settings
+.env
+.env.*
+!.env.example
+/config.yaml
+
+# runtime data: history, desk drawings, tuning, logs
+data/
+
+# large binaries, rebuilt on demand (see README "Rebuilding the offline bundle")
+models/
+bundle/
+
+__pycache__/
+*.pyc
+*.bak
+*.tmp
+venv/

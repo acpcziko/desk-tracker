@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Desk Tracker</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header>
+  <h1>Desk Tracker</h1>
+  <nav>
+    <button data-tab="daily" class="active">Daily</button>
+    <button data-tab="weekly">Weekly</button>
+    <button data-tab="live">Live</button>
+    <button data-tab="setup">Desk setup</button>
+  </nav>
+  <div id="status"></div>
+</header>
+
+<main>
+  <section id="tab-daily" class="tab active">
+    <div class="toolbar">
+      <button id="day-prev" title="Previous day">&larr;</button>
+      <input type="date" id="day-date">
+      <button id="day-next" title="Next day">&rarr;</button>
+      <select id="day-room"><option value="">All rooms</option></select>
+      <span id="day-note" class="muted"></span>
+    </div>
+    <div id="day-summary" class="cards"></div>
+    <div id="day-table"></div>
+  </section>
+
+  <section id="tab-weekly" class="tab">
+    <div class="toolbar">
+      <button id="week-prev">&larr;</button>
+      <span>Week starting</span>
+      <input type="date" id="week-start">
+      <button id="week-next">&rarr;</button>
+      <select id="week-room"><option value="">All rooms</option></select>
+      <a id="week-csv" class="btn" href="#">Export CSV</a>
+    </div>
+    <div id="week-table"></div>
+  </section>
+
+  <section id="tab-live" class="tab">
+    <p class="muted">Green areas = desk occupied now. Orange boxes = people detected. Refreshes every 10 s.</p>
+    <div id="live-grid" class="live-grid"></div>
+  </section>
+
+  <section id="tab-setup" class="tab">
+    <div class="toolbar">
+      <select id="setup-cam"></select>
+      <button id="setup-reload">Reload image</button>
+      <button id="setup-undo">Undo point</button>
+      <button id="setup-finish" class="primary">Finish desk</button>
+      <button id="setup-save" class="primary">Save</button>
+      <button id="setup-tune" title="Re-tune all desks from the last 7 days now (normally runs every night)">Auto-tune now</button>
+      <span id="setup-msg" class="muted"></span>
+    </div>
+    <p class="muted">Click around each desk to draw its area: cover the chair and where the person's body appears
+      when seated. Then press <b>Finish desk</b> (or click the first point again) and type the employee's name.</p>
+    <div class="setup-layout">
+      <div class="canvas-wrap"><canvas id="setup-canvas"></canvas></div>
+      <div id="setup-list"></div>
+    </div>
+  </section>
+</main>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+data
+models
+.env
+.env.*
+config.yaml
+.git
+bundle
+__pycache__
+*.pyc

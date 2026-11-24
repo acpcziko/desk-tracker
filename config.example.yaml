@@ -1,0 +1,29 @@
+# Copy to config.yaml and configure the recorder before starting the tracker.
+nvr:
+  host: recorder.example.invalid
+  rtsp_port: 554
+  rtsp_path: "/unicast/c{channel}/s{stream}/live"
+  stream: 1
+
+cameras:
+  - id: camera-1
+    name: Example camera
+    channel: 1
+
+schedule:
+  timezone: UTC
+  workdays: [mon, tue, wed, thu, fri]
+  start: "09:00"
+  end: "17:00"
+  track_margin_minutes: 60
+  track_always: false
+
+detection:
+  interval_seconds: 5
+  confidence: 0.35
+  min_overlap: 0.25
+  away_grace_minutes: 3
+  min_session_minutes: 1
+  cpu_threads: 2
+
+retention_days: 90
